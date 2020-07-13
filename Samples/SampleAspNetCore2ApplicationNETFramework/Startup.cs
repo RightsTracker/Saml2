@@ -57,7 +57,15 @@ namespace SampleAspNetCore2ApplicationNETFramework
                     options.SPOptions.ModulePath = "/Saml2";
 
                     // This could be overridden by  IdentityProvider option  RelayStateUsedAsReturnUrl = true
-                    options.SPOptions.ReturnUrl = new Uri("/RightsTracker/Hello", UriKind.Relative);
+                    //
+                    // This works, but can't seem to see the SAML2 XML => can't get to the asdfjklasdlfjk
+                    options.SPOptions.ReturnUrl = new Uri("/RightsTracker/HelloV2", UriKind.Relative);
+                    //
+                    // This throws an error
+                    //options.SPOptions.ReturnUrl = new Uri("/Saml2/Acs", UriKind.Relative);
+                    //
+                    // This goes around in a pointless loop
+                    //options.SPOptions.ReturnUrl = new Uri("/Saml2/SignIn", UriKind.Relative);
 
                     // RT: TODO appsettings here will be an array of IdentityProviders:
                     // #1 a StupIdp Tenant we use for internal testing
