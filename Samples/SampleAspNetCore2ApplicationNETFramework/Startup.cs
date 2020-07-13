@@ -47,6 +47,7 @@ namespace SampleAspNetCore2ApplicationNETFramework
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
             services.AddSingleton<IEmailSender, EmailSender>();
 
+            // RT: TODO make parameters come from appsettings.json
             services.AddAuthentication()
                 .AddSaml2(options => 
                 {
@@ -58,6 +59,10 @@ namespace SampleAspNetCore2ApplicationNETFramework
                     // This could be overridden by  IdentityProvider option  RelayStateUsedAsReturnUrl = true
                     options.SPOptions.ReturnUrl = new Uri("/RightsTracker/Hello", UriKind.Relative);
 
+                    // RT: TODO appsettings here will be an array of IdentityProviders:
+                    // #1 a StupIdp Tenant we use for internal testing
+                    // #2 EBU
+                    // #3 additional clients can be added
                     options.IdentityProviders.Add(
                         new IdentityProvider(
                             new EntityId("https://localhost:44300/b4bb4f76-1292-4504-8a79-a6df3d5bf707/Metadata"), // StubIdP

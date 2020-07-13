@@ -9,6 +9,11 @@ using SampleAspNetCore2ApplicationNETFramework.Data;
 
 namespace SampleAspNetCore2ApplicationNetFramework.Controllers
 {
+    // RT: this is here to demonstrate how Idp-Init flow might work
+    // e.g. 
+    // SAML2 options.SPOptions.ReturnUrl = new Uri("/RightsTracker/Hello", UriKind.Relative);
+    // makes Idp-Init go here
+
     public class RightsTrackerController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

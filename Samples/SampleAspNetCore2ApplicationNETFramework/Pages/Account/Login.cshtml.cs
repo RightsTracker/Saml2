@@ -12,6 +12,9 @@ using SampleAspNetCore2ApplicationNETFramework.Data;
 
 namespace SampleAspNetCore2ApplicationNETFramework.Pages.Account
 {
+
+    // RT: TODO - Have a separate page for each SAML client (e.g. /Login/Saml/EBU)
+
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

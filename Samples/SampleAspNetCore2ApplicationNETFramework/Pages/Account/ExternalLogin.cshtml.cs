@@ -59,6 +59,7 @@ namespace SampleAspNetCore2ApplicationNETFramework.Pages.Account
             return new ChallengeResult(provider, properties);
         }
 
+        // RT: FYI -
         class Saml2ClaimsFactory : IUserClaimsPrincipalFactory<ApplicationUser>
         {
             IUserClaimsPrincipalFactory<ApplicationUser> _inner;
@@ -119,6 +120,7 @@ namespace SampleAspNetCore2ApplicationNETFramework.Pages.Account
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor : true);
             if (result.Succeeded)
             {
+                // RT: TODO - make the {Name} work properly (currently null)
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
                 return LocalRedirect(Url.GetLocalUrl(returnUrl));
             }
@@ -128,6 +130,12 @@ namespace SampleAspNetCore2ApplicationNETFramework.Pages.Account
             }
             else
             {
+                // RT: - here is where we would catch a new user (not in Assetry) and do all the stuff we want to do to them:
+                // (1) Create them with minimal permissions,
+                // (2) route them to a "Welcome. Please ask you administrator to grant you permissions",
+                // (3) email their administrator and Bcc Mike :) 
+                //
+                // In their example this is what they do:
                 // If the user does not have an account, then ask the user to create an account.
                 ReturnUrl = returnUrl;
                 LoginProvider = info.LoginProvider;
