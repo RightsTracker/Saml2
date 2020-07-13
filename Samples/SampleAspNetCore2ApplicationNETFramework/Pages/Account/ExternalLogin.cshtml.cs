@@ -83,6 +83,18 @@ namespace SampleAspNetCore2ApplicationNETFramework.Pages.Account
                 identity.AddClaim(logoutInfo);
                 identity.AddClaim(sessionIndex);
 
+                // RT:
+                // Here we can add all the claims info from the SAML2 post into the User claims
+                // e.g.
+                foreach (var role in _externalLoginInfo.Principal.FindAll("http://schemas.microsoft.com/ws/2008/06/identity/claims/role"))
+                {
+                    identity.AddClaim(role);
+                }
+                // e.g. 2 - hard coded
+                identity.AddClaim(new Claim("Hello", "World"));
+                // e.g. 3 - (Note if "TenantId" is missing this will throw an exception)
+                identity.AddClaim(_externalLoginInfo.Principal.FindFirst("TenantId"));
+
                 return principal;
             }
         }

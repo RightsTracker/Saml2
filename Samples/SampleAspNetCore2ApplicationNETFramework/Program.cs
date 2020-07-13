@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace SampleAspNetCore2ApplicationNETFramework
 {
@@ -14,12 +15,26 @@ namespace SampleAspNetCore2ApplicationNETFramework
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).ConfigureLogging(logging =>
+            {
+                logging.ClearProviders();
+                logging.AddNLog("NLog.config");
+            }).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+                .UseStartup<Startup>();
+
+
+        //public static void Main(string[] args)
+        //{
+        //    BuildWebHost(args).Run();
+        //}
+
+        //public static IWebHost BuildWebHost(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>()
+        //        .Build();
     }
 }

@@ -189,6 +189,8 @@
     <Content Include="App_Data\Kentor.AuthServices.StubIdp.pfx" />
     <Content Include="App_Data\Kentor.AuthServices.StubIdp.cer" />
     <Content Include="App_Data\2273dd5a-8e86-4abc-9078-236215f06c0e.json" />
+    <Content Include="App_Data\b4bb4f76-1292-4504-8a79-a6df3d5bf707.json" />
+    <None Include="Properties\PublishProfiles\Saml2-StubIdP - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
