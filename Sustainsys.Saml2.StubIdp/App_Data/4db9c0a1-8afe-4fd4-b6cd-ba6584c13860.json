@@ -1,0 +1,29 @@
+{
+  "HideDetails": false,
+  "UserList": [
+    {
+      "DisplayName": "Jay",
+      "Description": "Batman",
+      "Assertion": {
+        "NameId": "jjack@rightstracker.com"
+      }
+    },
+    {
+      "DisplayName": "Dawid",
+      "Description": "The Flash",
+      "Assertion": {
+        "NameId": "dmusz@rightstracker.com"
+      }
+    },
+    {
+      "DisplayName": "Mike",
+      "Description": "Iron Man",
+      "Assertion": {
+        "NameId": "mscullion@rightstracker.com"
+      }
+    }
+  ],
+  "DefaultAssertionConsumerServiceUrl": "https://localhost:44342/Saml2_2/Acs",
+  "DefaultAudience": "https://localhost:44342/Saml2_2",
+  "IdpDescription": "IdP for localhost #2 - NOTE POSSIBLE DUPLICATE NAMES"
+}

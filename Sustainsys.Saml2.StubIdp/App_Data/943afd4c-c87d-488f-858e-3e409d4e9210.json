@@ -1,0 +1,15 @@
+{
+  "HideDetails": false,
+  "UserList": [
+    {
+      "DisplayName": "EBU API",
+      "Description": "A naughty backdoor :)",
+      "Assertion": {
+        "NameId": "api@eurovision.net"
+      }
+    }
+  ],
+  "DefaultAssertionConsumerServiceUrl": "https://license-qa.rightstracker.com/Saml2_2/Acs",
+  "DefaultAudience": "https://license-qa.rightstracker.com/Saml2_2",
+  "IdpDescription": "Our alternate IdP for EBU on license-qa.rightstracker.com"
+}

@@ -1,0 +1,36 @@
+{
+  "HideDetails": false,
+  "UserList": [
+    {
+      "DisplayName": "Demo",
+      "Description": "This is demo@assetrydemo.com",
+      "Assertion": {
+        "NameId": "demo@assetrydemo.com"
+      }
+    },
+    {
+      "DisplayName": "Jay",
+      "Description": "Batman",
+      "Assertion": {
+        "NameId": "jjack@rightstracker.com"
+      }
+    },
+    {
+      "DisplayName": "Dawid",
+      "Description": "The Flash",
+      "Assertion": {
+        "NameId": "dmusz@rightstracker.com"
+      }
+    },
+    {
+      "DisplayName": "Mike",
+      "Description": "Iron Man",
+      "Assertion": {
+        "NameId": "mscullion@rightstracker.com"
+      }
+    }
+  ],
+  "DefaultAssertionConsumerServiceUrl": "https://license-dev.rightstracker.com/Saml2_1/Acs",
+  "DefaultAudience": "https://license-dev.rightstracker.com/Saml2_1",
+  "IdpDescription": "IdP for license-dev.rightstracker.com demo account"
+}
