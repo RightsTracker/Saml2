@@ -119,6 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\RT_README-Which_Tenant_Is_Which.txt" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\normalize.css" />
@@ -188,8 +189,14 @@
     <Content Include="App_Data\stubidp.sustainsys.com.pfx" />
     <Content Include="App_Data\Kentor.AuthServices.StubIdp.pfx" />
     <Content Include="App_Data\Kentor.AuthServices.StubIdp.cer" />
-    <Content Include="App_Data\2273dd5a-8e86-4abc-9078-236215f06c0e.json" />
-    <Content Include="App_Data\b4bb4f76-1292-4504-8a79-a6df3d5bf707.json" />
+    <Content Include="App_Data\fc4fdb92-cb8e-4307-8939-06b01d835ffd.json" />
+    <Content Include="App_Data\ce6c26a3-cb76-42fe-b03d-6af8c63d0fb1.json" />
+    <Content Include="App_Data\945d6909-e88d-4171-bca4-c2a2d521a5fb.json" />
+    <Content Include="App_Data\943afd4c-c87d-488f-858e-3e409d4e9210.json" />
+    <Content Include="App_Data\839f5344-25dc-498d-883f-2bde0f8e7c40.json" />
+    <Content Include="App_Data\7533cd5c-99c4-4790-9f09-712b23b4b770.json" />
+    <Content Include="App_Data\6be75424-ff6a-486a-b694-a11549d8136e.json" />
+    <Content Include="App_Data\4db9c0a1-8afe-4fd4-b6cd-ba6584c13860.json" />
     <None Include="Properties\PublishProfiles\Saml2-StubIdP - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
