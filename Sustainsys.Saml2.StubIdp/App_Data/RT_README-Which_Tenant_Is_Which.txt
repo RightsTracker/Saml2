@@ -13,6 +13,8 @@ I have prepared Tenants for localhost development, Dev, Release, QA, and Live.
 You can edit, or add new tenants, to localhost, Dev, and Release freely.
 Please do not edit or add to QA and Live without checking with Jay first.
 
+There are also some in use here for testing using the Samples projects. Not listed here. See the source!
+
 
 localhost
 ---------

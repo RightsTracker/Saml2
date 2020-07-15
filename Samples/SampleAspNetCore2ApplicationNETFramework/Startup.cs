@@ -47,7 +47,8 @@ namespace SampleAspNetCore2ApplicationNETFramework
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
             services.AddSingleton<IEmailSender, EmailSender>();
 
-            // RT: TODO make parameters come from appsettings.json
+            // THESE ARE JUST DIFFERENT TESTS I AM TRYING:
+            //
             services.AddAuthentication()
                 .AddSaml2(options => 
                 {
@@ -58,7 +59,7 @@ namespace SampleAspNetCore2ApplicationNETFramework
 
                     // This could be overridden by  IdentityProvider option  RelayStateUsedAsReturnUrl = true
                     //
-                    // This works, but can't seem to see the SAML2 XML => can't get to the asdfjklasdlfjk
+                    // This works, but can't seem to see the SAML2 XML => can't get to attributes etc
                     options.SPOptions.ReturnUrl = new Uri("/RightsTracker/HelloV2", UriKind.Relative);
                     //
                     // This throws an error
@@ -67,13 +68,10 @@ namespace SampleAspNetCore2ApplicationNETFramework
                     // This goes around in a pointless loop
                     //options.SPOptions.ReturnUrl = new Uri("/Saml2/SignIn", UriKind.Relative);
 
-                    // RT: TODO appsettings here will be an array of IdentityProviders:
-                    // #1 a StupIdp Tenant we use for internal testing
-                    // #2 EBU
-                    // #3 additional clients can be added
+                    // #1 is a local StubIdp XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                     options.IdentityProviders.Add(
                         new IdentityProvider(
-                            new EntityId("https://localhost:44300/b4bb4f76-1292-4504-8a79-a6df3d5bf707/Metadata"), // StubIdP
+                            new EntityId("https://localhost:44300/88660361-83a8-460b-aa60-df935f45ea6b/Metadata"), // StubIdP
                             options.SPOptions)
                         {
                             LoadMetadata = true,
@@ -88,7 +86,7 @@ namespace SampleAspNetCore2ApplicationNETFramework
                     // Doesn't matter what pfx cert is used; It is just used for encryption. Can be any self signed cert.
                     options.SPOptions.ServiceCertificates.Add(new X509Certificate2("Sustainsys.Saml2.Tests.pfx"));
                 })
-                .AddSaml2("saml2V2", "saml2V2", options =>
+                .AddSaml2("saml2EBU", "SAML2 EBU QA", options =>
                 {
                     options.SPOptions.EntityId = new EntityId("https://localhost:44342/Saml2V2"); // ME! This Project
 
@@ -97,11 +95,14 @@ namespace SampleAspNetCore2ApplicationNETFramework
 
                     options.IdentityProviders.Add(
                         new IdentityProvider(
-                            new EntityId("https://localhost:44300/e7388e4e-592d-4b3a-a02f-9432179dc292/Metadata"), // StubIdP
+                            new EntityId("https://sso-qual.ebu.ch:443/auth"), // StubIdP
                             options.SPOptions)
                         {
-                            LoadMetadata = true,
+                            // If using MetadataLocation it must be LISTED FIRST :D - before the LoadMetadata = true statement
+                            MetadataLocation = "https://sso-qual.ebu.ch/auth/saml2/jsp/exportmetadata.jsp?entityid=https://sso-qual.ebu.ch:443/auth",
 
+                            LoadMetadata = true,
+                            
                             // IdP_Init == they start the login from their end
                             AllowUnsolicitedAuthnResponse = false,
 
